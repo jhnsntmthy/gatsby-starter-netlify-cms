@@ -19,6 +19,18 @@ collections:
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
 
+  - name: "measures"
+    label: "Quiz Items"
+    folder: "src/pages/measures"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
+      - {label: "Item Unique Identifier", name: "title", widget: "string"}
+      - {label: "Question Stem", name: "stem", widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Blocks, name: blocks, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: 'markdown'}]}]}
+      - {label: "Choices", name: "choices", widget: object, fields: [{label: "Prompt", name: prompt, widget: string}, {label: Options, name: options, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: 'markdown'}, {label: Correct, name: correct, widget: boolean, default: false}, {label: Feedback, name: feedback, widget: 'markdown'}, {label: Points, name: points, widget: 'number', default: 0, min: 0, max: 10, valueType: 'int'}]}]}
+      - {label: "Topic", name: "tags", widget: "list"}
+
   - name: "pages"
     label: "Pages"
     files:
